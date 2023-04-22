@@ -4,6 +4,9 @@
 # Ignore the virtual environment
 venv/
 
+# Ignore the idea folder
+.idea/
+
 # Ignore sensitive configuration files
 config.ini
 
