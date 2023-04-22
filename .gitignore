@@ -1,0 +1,17 @@
+# Ignore compiled Python files
+*.pyc
+
+# Ignore the virtual environment
+venv/
+
+# Ignore sensitive configuration files
+config.ini
+
+# Ignore temporary files
+*.tmp
+
+# Ignore log files
+*.log
+
+# Ignore macOS-specific files
+.DS_Store
