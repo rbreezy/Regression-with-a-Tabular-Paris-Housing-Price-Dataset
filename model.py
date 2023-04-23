@@ -1,4 +1,7 @@
 import pandas as pd
+from keras.models import Sequential
+from keras.layers import Dense
+from keras import backend as K
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
@@ -22,4 +25,20 @@ y = data['price']
 
 #split the data into train and val
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# model building
+model = Sequential()
+model.add(Dense(35, input_shape=(11,), activation='relu'))
+model.add(Dense(25, activation='relu'))
+model.add(Dense(12, activation='relu'))
+model.add(Dense(6, activation='relu'))
+model.add(Dense(1, activation='linear'))
+
+def root_mean_squared_error(y_true, y_pred):
+    return K.sqrt(K.mean(K.square(y_pred - y_true)))
+
+model.compile(loss=root_mean_squared_error, optimizer='adam')
+history = model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=50, batch_size=32, verbose=1)
+
+
 
