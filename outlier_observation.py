@@ -5,7 +5,8 @@ data = pd.read_csv('train.csv')
 
 features_using = ['numberOfRooms','hasYard','hasPool','floors','cityPartRange',
                   'numPrevOwners','isNewBuilt','hasStormProtector','hasStorageRoom',
-                  'hasGuestRoom','garage']
+                  'hasGuestRoom','garage','squareMeters','cityCode','made','basement',
+                  'attic']
 
 for feature in features_using:
     print(data[feature].describe())
@@ -14,6 +15,8 @@ for feature in features_using:
 """
 garage
 floors
+basement
+made
 """
 
 # min-max 
