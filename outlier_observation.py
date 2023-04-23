@@ -10,9 +10,16 @@ features_using = ['numberOfRooms','hasYard','hasPool','floors','cityPartRange',
 for feature in features_using:
     print(data[feature].describe())
 
-# after the above we found out the following coloumn with outlier
+# after the above we found out the following coloumn with outlier it need z-score normalization
 """
-hasGuestRoom
-hasPool
+garage
+floors
 """
 
+# min-max 
+"""
+numberOfRooms
+cityPartRange
+numPrevOwners
+hasGuestRoom
+"""
