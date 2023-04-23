@@ -4,6 +4,7 @@ from keras.layers import Dense
 from keras import backend as K
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
+import pickle
 
 data = pd.read_csv('train.csv')
 
@@ -38,7 +39,8 @@ def root_mean_squared_error(y_true, y_pred):
     return K.sqrt(K.mean(K.square(y_pred - y_true)))
 
 model.compile(loss=root_mean_squared_error, optimizer='adam')
-history = model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=50, batch_size=32, verbose=1)
+history = model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=80, batch_size=85, verbose=1)
 
-
-
+# save the model as a .pkl file
+with open('model.pkl', 'wb') as file:
+    pickle.dump(model, file)
